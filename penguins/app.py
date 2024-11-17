@@ -159,7 +159,7 @@ with ui.div(class_="shiny-main-content"):
             y_column_name = input.y_column_scatter()
     
             # Filter the penguins dataset based on selected species
-            penguins = filtered_data()
+            penguins = filtered_data().dropna(subset=[x_column_name, y_column_name])
     
             # Create scatter plot
             scatterplot = px.scatter(

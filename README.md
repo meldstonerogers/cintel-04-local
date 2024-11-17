@@ -31,6 +31,7 @@ Install packages into virtual enviornment
 ```
 python3 -m pip install --upgrade pip setuptools
 python3 -m pip install --upgrade -r requirements.txt
+pip install shinylive
 
 ```
 Install VS Code Extension for Shiny.
