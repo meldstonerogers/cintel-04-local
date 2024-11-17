@@ -1,5 +1,5 @@
 import plotly.express as px
-from shiny import Inputs, ui
+from shiny.express import input, ui
 from shiny import render, reactive
 from shinywidgets import render_widget, render_plotly
 import palmerpenguins  # This package provides the Palmer Penguins dataset
@@ -24,16 +24,16 @@ style = """
 </style>
 """
 
-ui.page_auto(title="Melissa's Palmer's Penguin Data Review", fillable=True, theme=theme.spacelab) + ui.HTML(style)
+ui.page_opts(title="Melissa's Palmer's Penguin Data Review", fillable=True, theme=theme.spacelab) + ui.HTML(style)
 
 # Add a Shiny UI sidebar for user interaction
 # Use a with block to add content to the sidebar
-ui.sidebar(bg="#F6FFF8",  
-    ui.h2("Sidebar"), # Use the ui.h2() function to add a 2nd level header to the sidebar    
+with ui.sidebar(bg="#F6FFF8"):  
+    ui.h2("Sidebar") # Use the ui.h2() function to add a 2nd level header to the sidebar    
     ui.div(
         ui.hr(),  # Use ui.hr() to add a horizontal rule to the sidebar 
         style="border-top: 2px solid #495569; margin: 10px 0;"  # Custom style for the horizontal rule
-    ), 
+    ) 
 
     # Use ui.input_checkbox_group() to create a checkbox group input to filter the species
     ui.input_checkbox_group(  
@@ -42,7 +42,7 @@ ui.sidebar(bg="#F6FFF8",
         choices=["Adelie", "Chinstrap", "Gentoo"],
         selected=["Adelie", "Chinstrap", "Gentoo"],
         inline=False 
-    ),
+    )
 
     # Use ui.input_checkbox_group() to create a checkbox group input to filter the island
     ui.input_checkbox_group(  
@@ -51,19 +51,19 @@ ui.sidebar(bg="#F6FFF8",
         choices=["Biscoe", "Dream", "Torgersen"],
         selected=["Biscoe", "Dream", "Torgersen"],
         inline=False 
-    ),
+    )
 
     ui.div(
         ui.hr(),  # Use ui.hr() to add a horizontal rule to the sidebar 
         style="border-top: 2px solid #495569; margin: 10px 0;"  # Custom style for the horizontal rule
-    ),  
-
+    )  
+    
     # Use ui.input_numeric() to create a numeric input for the number of Plotly histogram bins
     ui.input_numeric("plotly_bin_count", "Plotly Bin Count", 20, min=1, max=100)  
 
     @render.text
     def numeric():
-        return f"{input.numeric()}"
+        return input.numeric()
 
     ui.div(
         ui.hr(),  # Use ui.hr() to add a horizontal rule to the sidebar 
@@ -97,7 +97,6 @@ ui.sidebar(bg="#F6FFF8",
         
     # Use ui.a() to add a hyperlink to the sidebar
     ui.a("Melissa's GitHub", href="https://github.com/meldstonerogers", target="_blank") 
-)
 
 #####Main Content##### 
 #Data Table, showing all data
