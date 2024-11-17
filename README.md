@@ -61,7 +61,7 @@ I got numerous errors and my app would not run and launch. Thanks to dilligent c
 pip install websockets==10.4
 ```
 
-Once compelted, I was able to successfully run my Shiny app within a web browser with the initial code provided above.
+Once completed, I was able to successfully run my Shiny app within a web browser with the initial code provided above.
 
 ## Complete Your Project
 Save your project and push back to your repository. 
@@ -70,3 +70,22 @@ git add .
 git commit -m "final"                         
 git push origin main
 ```
+
+## Resources 
+This section was copied and pasted from Dr. Case's GitHub repository, [pyshiny-penguine-dashboard-express](https://github.com/denisecase/pyshiny-penguins-dashboard-express). Please note the following resources below. 
+
+Example csv data from [penguins.csv](https://github.com/mwaskom/seaborn-data/blob/master/penguins.csv).
+Used for review only. In the app, we import the data from the palmerpenguins package.
+
+Palmer Penguins published in:
+
+- Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer
+Archipelago (Antarctica) penguin data. R package version 0.1.0.
+ <https://allisonhorst.github.io/palmerpenguins/>. doi:
+10.5281/zenodo.3960218.
+
+Data originally published in:
+
+- Gorman KB, Williams TD, Fraser WR (2014). Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus Pygoscelis). PLoS ONE 9(3):e90081. <https://doi.org/10.1371/journal.pone.0090081>
+
+The Shiny development team. Shiny for Python [Computer software]. <https://github.com/posit-dev/py-shiny>
